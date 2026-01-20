@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let levelInterval;
     // Calculate level requirements (10 minutes for level 1, doubles each level)
     function getLevelRequirement(currentLevel) {
-        return 10 * 60 * Math.pow(2, currentLevel - 1); // 10 minutes for level 1, doubles each level
+        return 10 * 60 * Math.pow(100, currentLevel - 1); // 10 minutes for level 1, doubles each level
     }
     // Update level progress
     function updateLevelProgress() {
