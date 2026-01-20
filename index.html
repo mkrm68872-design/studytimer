@@ -19,7 +19,7 @@
 </div>
 <div id="progress-info" class="hidden w-full max-w-md mb-4 bg-white p-4 rounded-lg shadow">
             <div class="flex justify-between items-center mb-2">
-                <span>🌟 Level Progress 🌟</span>
+                <span> next level </span>
 <span id="next-level-time">0:00</span>
             </div>
             <div class="w-full bg-gray-200 rounded-full h-2.5">
@@ -76,5 +76,34 @@
     <script src="script.js"></script>
     <script>feather.replace();</script>
     <script src="https://huggingface.co/deepsite/deepsite-badge.js"></script>
+    <script>
+// استرجاع البيانات عند فتح الموقع
+window.onload = function() {
+  let savedMinutes = localStorage.getItem("studyMinutes");
+  if(savedMinutes){
+    let minutesInput = document.getElementById("minutes");
+    if(minutesInput){
+      minutesInput.value = savedMinutes;
+    }
+  }
+}
+
+// حفظ البيانات عند أي تغيير
+function saveData(){
+  let minutesInput = document.getElementById("minutes");
+  if(minutesInput){
+    localStorage.setItem("studyMinutes", minutesInput.value);
+  }
+}
+
+// ربط الزرار بالوظيفة
+let startBtn = document.getElementById("startBtn");
+if(startBtn){
+  startBtn.onclick = function() {
+    saveData();  // حفظ البيانات قبل البدء
+    // لو عندك كود التايمر الحالي يحط هنا
+  }
+}
+</script>
 </body>
 </html>
