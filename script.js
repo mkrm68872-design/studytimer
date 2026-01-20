@@ -23,13 +23,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const levelRequirement = getLevelRequirement(level);
         
         levelProgress = (timeElapsed / levelRequirement) * 100;
-        levelProgressBar.style.width = ${Math.min(levelProgress, 100)}%;
+        levelProgressBar.style.width = `${Math.min(levelProgress, 100)}%`;
         
         if (timeElapsed < levelRequirement) {
             const remainingSeconds = levelRequirement - timeElapsed;
             const minutes = Math.floor(remainingSeconds / 60);
             const seconds = Math.floor(remainingSeconds % 60);
-            nextLevelTime.textContent = ${minutes}:${seconds.toString().padStart(2, '0')};
+            nextLevelTime.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
         } else {
             nextLevelTime.textContent = 'Ready!';
             levelUp();
@@ -89,7 +89,7 @@ const timerDisplay = document.getElementById('timer-display');
     function updateDisplay() {
         const minutes = Math.floor(remainingSeconds / 60);
         const seconds = remainingSeconds % 60;
-        timerDisplay.textContent = ${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')};
+        timerDisplay.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
         
         // Update progress circle
         const progress = remainingSeconds / totalSeconds;
@@ -152,7 +152,7 @@ const timerDisplay = document.getElementById('timer-display');
 const noteItem = document.createElement('li');
         noteItem.className = 'note-item bg-gray-50 p-3 rounded-lg flex flex-col';
         noteItem.innerHTML = `
-            ${noteTitle ? <h3 class="note-title">${noteTitle}</h3> : ''}
+            ${noteTitle ? `<h3 class="note-title">${noteTitle}</h3>` : ''}
             <span class="note-text">${noteText}</span>
             <div class="flex justify-end gap-2">
 <div class="flex gap-2">
@@ -221,7 +221,7 @@ feather.replace();
                 const newText = editInput.value.trim();
                 if (newText) {
                     noteItem.innerHTML = `
-                    ${editTitleInput.value ? <h3 class="note-title font-semibold text-lg mb-1">${editTitleInput.value}</h3> : ''}
+                    ${editTitleInput.value ? `<h3 class="note-title font-semibold text-lg mb-1">${editTitleInput.value}</h3>` : ''}
                     <span class="note-text">${newText}</span>
                     <div class="flex justify-end gap-2">
 <button class="edit-note text-blue-500 hover:text-blue-700">
@@ -289,14 +289,5 @@ if (e.key === 'Enter') {
     fullBtn.addEventListener('click', () => {
         toggleProgressDisplay();
         levelUp();
-   });
-
-
-
-
-
-
-
-
-
-                
+    });
+});
